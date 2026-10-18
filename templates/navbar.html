@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
     <div class="container-fluid">
 
-        <a class="navbar-brand fw-bold text-dark" href="#">
+        <a class="navbar-brand fw-bold text-dark" href="{% url 'home' %}">
             ManageCash
         </a>
 
@@ -19,27 +19,28 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-dark" href="{% url 'home' %}">
-                        Home
+                    <a class="nav-link active text-dark" href="{% url 'profile' %}">
+                        Profile
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="">
-                        Cash In
+                    <a class="nav-link text-secondary" href="{% url 'add_cash' %}">
+                        add Cash
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="{% url 'add_expense' %}">
+                        add Expense
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="">
+                    <a class="nav-link text-secondary" href="{% url 'dashboard' %}">
                     Dashboard
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">
-                        About
-                    </a>
                 </li>
             </ul>
 

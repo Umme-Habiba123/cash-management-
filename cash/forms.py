@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, User, AuthenticationForm
-
+from .models import *
 
     
 class RegisterForm(UserCreationForm):
@@ -61,3 +61,27 @@ class LoginForm(AuthenticationForm):
         }
     ))
     
+    
+class AddCashForm(forms.ModelForm):
+    class Meta:
+        model = AddCash
+        fields = ['source', 'datetime', 'amount', 'description']
+        widgets = {
+            'datetime': forms.DateTimeInput(
+                attrs={'type': 'datetime-local'},
+                format='%Y-%m-%dT%H:%M'
+            ),
+        }     
+        
+class ExpenseForm(forms.ModelForm):
+    class Meta:
+        model = Expenses
+        fields = ['description', 'amount', 'datetime']
+        widgets = {
+            'datetime': forms.DateTimeInput(
+                attrs={'type': 'datetime-local'},
+                format='%Y-%m-%dT%H:%M'
+            ),
+        }     
+        
+        

@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <h2 class="mb-4">Cash Management Dashboard</h2>
+
+    <div class="row g-3">
+
+        <div class="col-md-4">
+            <div class="card bg-success-subtle shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Total Income</h5>
+                    <h3>{{ total_income }} ৳</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-danger-subtle shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Total Expense</h5>
+                    <h3>{{ total_expense }} ৳</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card bg-primary-subtle shadow-sm h-100">
+                <div class="card-body">
+                    <h5>Balance</h5>
+                    <h3>{{ balance }} ৳</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <a href="{% url 'add_cash' %}" class="btn btn-success">+ Add Income</a>
+        <a href="{% url 'add_expense' %}" class="btn btn-danger">+ Add Expense</a>
+    </div>
+
+    <div class="row mt-4 g-3">
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header">Income History</div>
+                <div class="card-body">
+                    {% for item in income %}
+                        <p>{{ item.source }} — {{ item.amount }} ৳</p>
+                    {% empty %}
+                        <p>No income records.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header">Expense History</div>
+                <div class="card-body">
+                    {% for item in expenses %}
+                        <p>{{ item.description }} — {{ item.amount }} ৳</p>
+                    {% empty %}
+                        <p>No expense records.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

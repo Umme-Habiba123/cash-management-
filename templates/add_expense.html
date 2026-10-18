@@ -1,0 +1,20 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h3>Add Expense</h3>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-danger">Save Expense</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
